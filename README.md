@@ -1,27 +1,48 @@
 # Kanflow
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+Este é um **web app de Kanban** desenvolvido em Angular, projetado para facilitar a gestão de tarefas e projetos de forma responsiva e intuitiva. Com funcionalidades como criação de boards, gerenciamento de tarefas e subtarefas, o app oferece uma experiência de usuário fluida e moderna.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Os usuários poderão:
 
-## Code scaffolding
+- **Responsividade**: Visualizar o layout ideal do app para diferentes tamanhos de tela.
+- **Estados de interação**: Ver estados de hover para todos os elementos interativos na página.
+- **CRUD completo**: Criar, ler, atualizar e excluir boards e tarefas.
+- **Validação de formulários**: Receber validações ao criar ou editar boards e tarefas.
+- **Subtarefas**: Marcar subtarefas como concluídas e mover tarefas entre colunas.
+- **Modo claro/escuro**: Alternar entre os temas claro e escuro.
+- **Drag and Drop**: Permitir que os usuários arrastem e soltem tarefas para alterar status e reordená-las em uma coluna.
+- **Persistência local**: Manter as alterações salvas, mesmo após atualizar o navegador (utilizando **localStorage**).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Tecnologias Utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Framework**: Angular
+- **Linguagem**: TypeScript
+- **Armazenamento Local**: localStorage para persistência dos dados.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Como Iniciar o Projeto
 
-## Running end-to-end tests
+Siga os passos abaixo para rodar o projeto localmente:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Clone o repositório:**
+	```bash
+	git clone https://github.com/Nicolasgonpereira/kanflow.git
+	cd kanflow
+	```
 
-## Further help
+2. **Instale as dependências:**
+	```bash
+	npm install
+	```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. **Inicie o servidor de desenvolvimento:**
+	```bash
+	ng serve
+	```
+
+Acesse o app no navegador através da URL: http://localhost:4200
