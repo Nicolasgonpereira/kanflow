@@ -1,0 +1,33 @@
+<section class="kanbanBoard">
+	<article class="kanbanColumn" *ngFor="let column of selectedBoard?.columns">
+		<header>
+			<h2>
+				{{column.name}}
+			</h2>
+		</header>
+		<ul
+			cdkDropList
+			[cdkDropListData]="column.tasks"
+			[cdkDropListConnectedTo]="connectedDropLists"
+			class="task-list"
+			(cdkDropListDropped)="drop($event)"
+			id="{{column.name}}"
+		>
+			<li
+				cdkDrag
+				class="kanbantask" *ngFor="let task of column.tasks"
+			>
+				<h3>
+					{{task.title}}
+				</h3>
+				<p>
+					Responsible: {{task.responsible}}
+				</p>
+				<p>
+					Due Date: {{task.dueDate | date: 'dd/MM/yyyy'}}
+				</p>
+				<p>Produced: {{task.getCompletedSubtasksCount()}}</p>
+			</li>
+		</ul>
+	</article>
+</section>

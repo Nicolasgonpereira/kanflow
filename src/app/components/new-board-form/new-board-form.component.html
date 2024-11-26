@@ -1,0 +1,13 @@
+<form (ngSubmit)="handleCreateNewBoard()">
+		<label for="boardName">Nome do Board:</label>
+		<input type="text" id="boardName" name="boardName" required [(ngModel)]="boardName"/>
+		<label for="selectingBoardColumns">Board Columns</label>
+		<div id="selectingBoardColumns">
+			<div *ngFor="let column of columns; let i = index trackBy: trackByColumn">
+				<input type="text" [(ngModel)]="columns[i]" id="column{{i}}" name="column{{i}}" required />
+				<button type="button" (click)="removeColumn(i)">X</button>
+			</div>
+			<button type="button" (click)="addColumn()">Add New Column</button>
+		</div>
+		<button type="submit">Create New Board</button>
+</form>

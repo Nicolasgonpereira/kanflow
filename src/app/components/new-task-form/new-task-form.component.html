@@ -1,0 +1,33 @@
+<form (ngSubmit)="handleCreateNewTask()">
+	<div>
+		<label for="taskNameInput">Task Name</label>
+		<input type="text" id="taskNameInput" name="taskName" required [(ngModel)]="taskName" />
+	</div>
+	<div>
+		<label for="taskDescriptionInput">Description</label>
+		<input type="text" id="taskDescriptionInput" name="taskDescription" [(ngModel)]="taskDescription" />
+	</div>
+	<div>
+		<label for="taskResponsibleInput">Responsible</label>
+		<input type="text" id="taskResponsibleInput" name="taskResponsible" [(ngModel)]="taskResponsible" />
+	</div>
+	<div>
+		<label for="subTasksListInput">Subtasks</label>
+		<div id="subTasksListInput">
+			<div *ngFor="let subtask of subtasks; let i = index trackBy: trackbyTask">
+				<input type="text" [(ngModel)]="subtasks[i]" name="subtask{{i}}" />
+				<button type="button" (click)="removeSubTask(i)" >X</button>
+			</div>
+			<button type="button" (click)="addSubTask()">Add new Subtask</button>
+		</div>
+	</div>
+	<div>
+		<label for="taskStatusSelect">Status</label>
+		<select id="taskStatusSelect" name="taskStatus" [(ngModel)]="taskStatus" required>
+			<option *ngFor="let status of selectedBoard?.getStatuses()">
+				{{status}}
+			</option>
+		</select>
+	</div>
+	<button type="submit">Create Task</button>
+</form>

@@ -1,0 +1,47 @@
+.kanbanBoard {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-left: 12px;
+	min-height: 80vh;
+}
+
+.kanbanColumn {
+	display: flex;
+	flex-direction: column;
+	width: 240px;
+	min-width: 240px;
+	gap: 10px;
+}
+
+ul {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 16px;
+	flex-grow: 1;
+}
+
+.kanbantask {
+	border-radius: 8px;
+	background-color: var(--secondary-bg);
+	padding: 8px 0 8px 16px;
+}
+
+.cdk-drag {
+	list-style: none;
+	cursor: grab;
+}
+
+.cdk-drag-preview {
+	opacity: 0.5;
+}
+
+.cdk-drag-placeholder {
+	opacity: 0.5;
+	border: 2px dashed var(--text-secondary);
+}

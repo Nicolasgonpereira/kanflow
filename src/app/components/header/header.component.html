@@ -1,0 +1,49 @@
+<header>
+	<div>
+		<p>
+			KanFlow
+		</p>
+	</div>
+	<div ngClass="divSelectedBoard">
+		<button (click)="openSelectModal()">
+			{{selectedBoardName}}
+		</button>
+	</div>
+	<div ngClass="divAddTask">
+		<button (click)="openNewTaskModal()">
+			add
+			Task
+		</button>
+	</div>
+	<div ngClass="divSettings">
+		<button (click)="openDropdownSettingsOpen()">
+			Settings
+		</button>
+		<app-drop-down
+			*ngIf="isdropdownSettingsOpen"
+			(closeDropdown)="closeDropdownSettingsOpen()"
+			[customStyles]="dropDownStyles"
+		>
+			<ul>
+				<li (click)="openEditBoardModal();closeDropdownSettingsOpen()">
+					Edit board
+				</li>
+				<li class="buttonDeleteBoard" (click)="closeDropdownSettingsOpen()">
+					Delete board
+				</li>
+			</ul>
+		</app-drop-down>
+	</div>
+</header>
+<app-modal *ngIf="isSelectBoardModalOpen" (closeModal)="closeSelectModal()">
+	<app-board-list (onNewBoardNotify)="openNewBoardModal()" (closeNotify)="closeSelectModal()"/>
+</app-modal>
+<app-modal *ngIf="isNewBoardModalOpen" (closeModal)="closeNewBoardModal()">
+	<app-new-board-form />
+</app-modal>
+<app-modal *ngIf="isNewTaskModalOpen" (closeModal)="closeNewTaskModal()">
+	<app-new-task-form />
+</app-modal>
+<app-modal *ngIf="isEditBoardModalOpen" (closeModal)="closeEditBoardModal()">
+	<app-edit-board-form />
+</app-modal>

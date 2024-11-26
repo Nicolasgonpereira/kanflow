@@ -1,0 +1,18 @@
+.dropdownOverlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+}
+
+.dropdownMenu {
+	position: absolute;
+	background-color: var(--secondary-bg);
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px var(--border);
+	z-index: 20;
+	padding: 16px;
+}

@@ -1,0 +1,43 @@
+header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: var(--secondary-bg);
+	width: 100vw;
+}
+
+header div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.divSelectedBoard {
+	margin: 0 auto 0 16px;
+}
+
+.divAddTask {
+	margin-right: 16px;
+}
+
+.divSettings {
+	margin-right: 8px;
+}
+
+ul {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	padding: 0px;
+	margin: 0;
+	gap: 10px;
+}
+
+.buttonDeleteBoard {
+	color: var(--error);
+}
+
+.imgSetting {
+	width: 24px;
+	height: 24px;
+}

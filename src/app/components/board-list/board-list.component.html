@@ -1,0 +1,6 @@
+<ul *ngIf="isBoardListVisible">
+	<li *ngFor="let board of boards" (click)="onSelectBoard(board)">
+		{{board.title}}
+	</li>
+	<button (click)="onNewBoard()">Create New Board</button>
+</ul>
