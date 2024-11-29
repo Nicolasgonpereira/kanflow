@@ -11,13 +11,13 @@
 	</div>
 	<div ngClass="divAddTask">
 		<button (click)="openNewTaskModal()">
-			add
-			Task
+			<span class="material-icons">add</span>
+			<span style="display: flex;align-items: center;height: 26px;">Task</span>
 		</button>
 	</div>
 	<div ngClass="divSettings">
 		<button (click)="openDropdownSettingsOpen()">
-			Settings
+			<span class="material-icons">more_vert</span>
 		</button>
 		<app-drop-down
 			*ngIf="isdropdownSettingsOpen"
