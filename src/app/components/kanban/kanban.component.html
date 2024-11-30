@@ -17,16 +17,7 @@
 				cdkDrag
 				class="kanbantask" *ngFor="let task of column.tasks"
 			>
-				<h3>
-					{{task.title}}
-				</h3>
-				<p>
-					Responsible: {{task.responsible}}
-				</p>
-				<p>
-					Due Date: {{task.dueDate | date: 'dd/MM/yyyy'}}
-				</p>
-				<p>Produced: {{task.getCompletedSubtasksCount()}}</p>
+				<app-task-card [task]="task"></app-task-card>
 			</li>
 		</ul>
 	</article>

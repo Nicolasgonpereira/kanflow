@@ -40,6 +40,16 @@ export class Board {
 		this.columns.push({name:'',tasks: []})
 	}
 
+	findTask(task: Task): Task | undefined {
+		for (const column of this.columns) {
+			const foundTask = column.tasks.find((element: Task) => element === task)
+			if(foundTask) {
+				return foundTask;
+			}
+		}
+		return undefined;
+	}
+
 	static fromJSON(json: any): Board {
 		return new Board(
 			json.id,

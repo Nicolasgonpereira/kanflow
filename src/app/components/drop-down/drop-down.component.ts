@@ -12,7 +12,7 @@ export class DropDownComponent {
 	@Input() customStyles: {[key: string]: string} = {};
 	@Output() closeDropdown = new EventEmitter<void>();
 
-	close() {
+	close(): void {
 		this.closeDropdown.emit();
 	}
 }

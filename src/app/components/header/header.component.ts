@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
 	isNewTaskModalOpen: boolean = false;
 	isEditBoardModalOpen: boolean = false;
 	isdropdownSettingsOpen: boolean = false;
-	dropDownStyles: {[key:string]: string} = {right: '10px', 'top': '0px', 'transform': 'translate(0, 100%)'};
+	dropDownStyles: {[key:string]: string} = {right: '10px', 'top': '0px', 'transform': 'translate(0, 50%)'};
 
 	constructor (private boardService: BoardService) {}
 

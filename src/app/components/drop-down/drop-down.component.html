@@ -1,12 +1,11 @@
 <div
-	class="dropdownOverlay"
+	class="dropdown-overlay"
 	(click)="close()"
+>
+</div>
+<div
+	class="dropdownMenu"
+	[ngStyle]="customStyles"
 	>
-	<div
-		class="dropdownMenu"
-		[ngStyle]="customStyles"
-		(click)="$event.stopPropagation()"
-		>
-		<ng-content></ng-content>
-	</div>
+	<ng-content></ng-content>
 </div>

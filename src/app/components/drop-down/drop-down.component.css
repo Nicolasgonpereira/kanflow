@@ -1,10 +1,12 @@
-.dropdownOverlay {
+.dropdown-overlay {
 	position: fixed;
 	top: 0;
-	right: 0;
+	left: 0;
 	width: 100vw;
 	height: 100vh;
-	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .dropdownMenu {
@@ -15,4 +17,5 @@
 	box-shadow: 0 4px 6px var(--border);
 	z-index: 20;
 	padding: 16px;
+	min-width: 100px;
 }

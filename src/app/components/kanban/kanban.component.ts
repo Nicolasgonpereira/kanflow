@@ -4,11 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { Board } from '../../models/board.model';
 import { Task } from '../../models/task.model';
 import { BoardService } from '../../services/board/board.service';
+import { TaskCardComponent } from "../task-card/task-card.component";
 
 @Component({
   selector: 'app-kanban',
   standalone: true,
-  imports: [CommonModule, DragDropModule],
+  imports: [CommonModule, DragDropModule, TaskCardComponent],
   templateUrl: './kanban.component.html',
   styleUrl: './kanban.component.css'
 })

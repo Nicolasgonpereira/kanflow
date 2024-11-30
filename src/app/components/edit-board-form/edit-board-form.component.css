@@ -1,0 +1,41 @@
+header {
+	margin: 0 0 24px 0;
+}
+
+header h2 {
+	margin: 12px 0 8px 0;
+}
+
+header p {
+	margin: 0;
+}
+
+.editBoardForm {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 12px;
+}
+
+.editBoardForm div {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+label.BoardColumns {
+	margin-top: 16px;
+}
+
+.boardColumnInput {
+	display: flex;
+	flex-direction: row !important;
+}
+
+.boardColumnInput input {
+	flex-grow: 1;
+}
+
+.primary, .secondary {
+	margin: 16px 0 0;
+}

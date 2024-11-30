@@ -402,3 +402,45 @@ button {
 	background-color: transparent;
 	border: none;
 }
+
+button.primary {
+	background-color: var(--highlight);
+	color: var(--secondary-bg);
+	border: 2px solid var(--highlight);
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	font-size: 1rem;
+	justify-content: center;
+	cursor: pointer;
+  }
+
+  button.primary:hover {
+	filter: brightness(1.25);
+  }
+
+  button.secondary {
+	background-color: var(--secondary-bg);
+	color: var(--text-primary);
+	border: 2px solid var(--border);
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	font-size: 1rem;
+	justify-content: center;
+	cursor: pointer;
+  }
+
+  button.secondary:hover {
+	background-color: var(--border);
+  }
+
+input, textarea, select {
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	min-height: 26px;
+	padding: 8px 16px;
+}
+
+textarea {
+	min-height: 60px;
+	resize: vertical;
+}

@@ -31,6 +31,18 @@ export class Task {
 		return this.subtasks.reduce((acc, cur) => acc + (cur.isCompleted ? 1 : 0), 0);
 	}
 
+	getAllSubtasksCount(): number {
+		return this.subtasks.length;
+	}
+
+	findSubtask(subtask: SubTask): SubTask | undefined {
+		const foundSubtask = this.subtasks.find((element: SubTask) => element === subtask)
+		if (foundSubtask) {
+			return foundSubtask;
+		}
+		return undefined;
+	}
+
 	static fromJSON(json: Task): Task {
 		return new Task(
 			json.title,

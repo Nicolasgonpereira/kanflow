@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BoardService } from '../../services/board/board.service';
 
@@ -11,6 +11,7 @@ import { BoardService } from '../../services/board/board.service';
   styleUrl: './new-board-form.component.css'
 })
 export class NewBoardFormComponent {
+	@Output() CloseModal: EventEmitter<void> = new EventEmitter();
 	boardName: string = '';
 	columns: string[] = ['To do', 'Doing', 'Done'];
 
@@ -31,11 +32,14 @@ export class NewBoardFormComponent {
 	}
 
 	handleCreateNewBoard(): void {
-		const data =  {
-			boardName: this.boardName,
-			columns: this.columns
-		};
-		this.boardService.createNewBoard(data);
+		if(this.boardName.length>=3) {
+			const data =  {
+				boardName: this.boardName,
+				columns: this.columns
+			};
+			this.boardService.createNewBoard(data);
+			this.CloseModal.emit();
+		}
 	}
 
 }

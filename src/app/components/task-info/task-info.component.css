@@ -1,0 +1,27 @@
+header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+h2 {
+	margin: 8px auto 8px 0;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	display: flex;
+	align-items: center;
+	margin: 0 0 8px 0;
+	background-color: var(--background);
+	border-radius: 4px;
+	padding: 8px;
+}
+
+input[type="checkbox"] {
+	margin: 0 8px 0 0;
+}

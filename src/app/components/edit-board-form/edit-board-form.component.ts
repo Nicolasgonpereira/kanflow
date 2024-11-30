@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Board } from '../../models/board.model';
 import { BoardService } from '../../services/board/board.service';
@@ -12,6 +12,7 @@ import { BoardService } from '../../services/board/board.service';
   styleUrl: './edit-board-form.component.css'
 })
 export class EditBoardFormComponent implements OnInit {
+	@Output() closeModal: EventEmitter<void> = new EventEmitter();
 	editableBoard: Board = new Board(0, '', []);
 
 	constructor (private boardService: BoardService) {}
@@ -39,6 +40,6 @@ export class EditBoardFormComponent implements OnInit {
 	handleEditBoard(): void {
 		this.boardService.saveBoards(this.editableBoard);
 		this.boardService.selectBoard(this.editableBoard);
+		this.closeModal.emit();
 	}
-
 }

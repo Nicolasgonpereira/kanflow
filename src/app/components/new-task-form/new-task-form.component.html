@@ -1,24 +1,50 @@
-<form (ngSubmit)="handleCreateNewTask()">
+<header>
+	<h2 id="title">Create New Task</h2>
+	<p id="description">Use this form to create a new task by providing the required details.</p>
+</header>
+<form class="newTaskForm" (ngSubmit)="handleCreateNewTask()">
 	<div>
 		<label for="taskNameInput">Task Name</label>
-		<input type="text" id="taskNameInput" name="taskName" required [(ngModel)]="taskName" />
+		<input
+			type="text"
+			id="taskNameInput"
+			name="taskName"
+			required
+			[(ngModel)]="taskName"
+			aria-required="true"
+		/>
 	</div>
 	<div>
 		<label for="taskDescriptionInput">Description</label>
-		<input type="text" id="taskDescriptionInput" name="taskDescription" [(ngModel)]="taskDescription" />
+		<textarea
+			id="taskDescriptionInput"
+			class="taskDescriptionInput"
+			name="taskDescription"
+			[(ngModel)]="taskDescription"
+			rows="3"
+		>
+
+		</textarea>
 	</div>
 	<div>
 		<label for="taskResponsibleInput">Responsible</label>
-		<input type="text" id="taskResponsibleInput" name="taskResponsible" [(ngModel)]="taskResponsible" />
+		<input
+			type="text"
+			id="taskResponsibleInput"
+			name="taskResponsible"
+			required
+			[(ngModel)]="taskResponsible"
+			aria-required="true"
+		/>
 	</div>
 	<div>
-		<label for="subTasksListInput">Subtasks</label>
-		<div id="subTasksListInput">
-			<div *ngFor="let subtask of subtasks; let i = index trackBy: trackbyTask">
+		<label for="subTasksList">Subtasks</label>
+		<div class="subTasksList" id="subTasksList">
+			<div class="subTasksListInput" *ngFor="let subtask of subtasks; let i = index trackBy: trackbyTask">
 				<input type="text" [(ngModel)]="subtasks[i]" name="subtask{{i}}" />
-				<button type="button" (click)="removeSubTask(i)" >X</button>
+				<button class="buttonRemoveSubtask" type="button" (click)="removeSubTask(i)" >X</button>
 			</div>
-			<button type="button" (click)="addSubTask()">Add new Subtask</button>
+			<button class="secondary" type="button" (click)="addSubTask()">Add new Subtask</button>
 		</div>
 	</div>
 	<div>
@@ -29,5 +55,5 @@
 			</option>
 		</select>
 	</div>
-	<button type="submit">Create Task</button>
+	<button class="primary" type="submit">Create Task</button>
 </form>

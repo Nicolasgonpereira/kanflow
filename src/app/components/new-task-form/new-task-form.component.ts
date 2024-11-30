@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Board } from '../../models/board.model';
 import { BoardService } from '../../services/board/board.service';
@@ -12,6 +12,7 @@ import { BoardService } from '../../services/board/board.service';
   styleUrl: './new-task-form.component.css'
 })
 export class NewTaskFormComponent implements OnInit{
+	@Output() closeModal: EventEmitter<void> = new EventEmitter();
 	selectedBoard: Board | null = null;
 	taskName: string = '';
 	taskDescription: string = '';
@@ -49,5 +50,6 @@ export class NewTaskFormComponent implements OnInit{
 			status: this.taskStatus
 		};
 		this.boardService.createNewTask(data);
+		this.closeModal.emit();
 	}
 }

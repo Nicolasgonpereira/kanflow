@@ -1,1 +1,14 @@
-<p>task-card works!</p>
+<article
+	(click)="openTaskInfoModal()"
+	tabindex="0"
+	role="button"
+	[attr.aria-label]="'View details for ' +task.title"
+>
+	<h3>{{task.title}}</h3>
+	<p>Responsible: {{task.responsible}}</p>
+	<p>Due Date: {{task.dueDate | date: 'dd/MM/yyyy'}}</p>
+	<p>Produced: {{task.getCompletedSubtasksCount()}}</p>
+</article>
+<app-modal *ngIf="isTaskInfoModalOpen" (closeModal)="closeTaskInfoModal()">
+	<app-task-info [task]="task"></app-task-info>
+</app-modal>

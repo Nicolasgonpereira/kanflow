@@ -1,0 +1,41 @@
+<header>
+	<h2>
+		{{task.title}}
+	</h2>
+	<button (click)="openDropdownSettings()">
+		<span class="material-icons">more_vert</span>
+	</button>
+	<app-drop-down
+			*ngIf="isDropdownSettingsOpen"
+			(closeDropdown)="closeDropdownSettings()"
+			[customStyles]="dropDownStyles"
+		>
+			<ul>
+				<li (click)="openEditTaskModal();closeDropdownSettings()">
+					Edit task
+				</li>
+				<li class="buttonDeleteTask" (click)="closeDropdownSettings()">
+					Delete task
+				</li>
+			</ul>
+		</app-drop-down>
+</header>
+<p>
+	{{task.description}}
+</p>
+<h3>
+	Subtasks ({{task.getCompletedSubtasksCount()}} of {{task.getAllSubtasksCount()}})
+</h3>
+<ul>
+	<li *ngFor="let subtask of task.subtasks">
+		<label>
+			<input
+				type="checkbox"
+				[checked]="subtask.isCompleted"
+				(change)="handleSubtaskCompletion(subtask)"
+				[attr.aria-label]="'Mark subtask ' + subtask.title + ' as completed'"
+			/>
+			{{subtask.title}}
+		</label>
+	</li>
+</ul>

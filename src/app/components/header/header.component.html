@@ -1,5 +1,7 @@
 <header>
-	<div>
+	<div
+		style="margin: 0 0 0 8px;"
+	>
 		<p>
 			KanFlow
 		</p>
@@ -39,11 +41,11 @@
 	<app-board-list (onNewBoardNotify)="openNewBoardModal()" (closeNotify)="closeSelectModal()"/>
 </app-modal>
 <app-modal *ngIf="isNewBoardModalOpen" (closeModal)="closeNewBoardModal()">
-	<app-new-board-form />
+	<app-new-board-form (CloseModal)="closeNewBoardModal()" />
 </app-modal>
 <app-modal *ngIf="isNewTaskModalOpen" (closeModal)="closeNewTaskModal()">
-	<app-new-task-form />
+	<app-new-task-form (closeModal)="closeNewTaskModal()" />
 </app-modal>
 <app-modal *ngIf="isEditBoardModalOpen" (closeModal)="closeEditBoardModal()">
-	<app-edit-board-form />
+	<app-edit-board-form (closeModal)="closeEditBoardModal()" />
 </app-modal>

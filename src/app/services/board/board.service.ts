@@ -53,4 +53,19 @@ export class BoardService {
 			this.dataService.saveBoards(currentBoard);
 		}
 	}
+
+	saveSubtaskCompletion(task: Task, subtask: SubTask): void {
+		const currentBoard = this.selectedBoardSuject.value;
+		if (currentBoard) {
+			const taskToUpdate = currentBoard.findTask(task);
+			if (taskToUpdate) {
+				const subtasktoUpdate = taskToUpdate.findSubtask(subtask);
+				if(subtasktoUpdate) {
+					subtasktoUpdate.toggleCompletion();
+				}
+			}
+			this.selectBoard(currentBoard);
+			this.dataService.saveBoards(currentBoard);
+		}
+	}
 }
