@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { BoardService } from '../../services/board/board.service';
+import { ThemeService } from '../../services/theme/theme.service';
 import { BoardListComponent } from "../board-list/board-list.component";
 import { DropDownComponent } from "../drop-down/drop-down.component";
 import { EditBoardFormComponent } from "../edit-board-form/edit-board-form.component";
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit {
 	isdropdownSettingsOpen: boolean = false;
 	dropDownStyles: {[key:string]: string} = {right: '10px', 'top': '0px', 'transform': 'translate(0, 50%)'};
 
-	constructor (private boardService: BoardService) {}
+	constructor (private boardService: BoardService, private themeService: ThemeService) {}
 
 	ngOnInit(): void {
 		this.boardService.selectedBoard$.subscribe(board => {
@@ -75,5 +76,9 @@ export class HeaderComponent implements OnInit {
 
 	closeDropdownSettingsOpen(): void {
 		this.isdropdownSettingsOpen = false;
+	}
+
+	toggleAppTheme(): void {
+		this.themeService.toggleTheme();
 	}
 }

@@ -365,8 +365,8 @@
 body.dark-theme {
 	--background: #121212;
 	--secondary-bg: #1E1E1E;
-	--text-primary: #E0E0E0;
-	--text-secondary: #A0A0A0;
+	--text-primary: #f0f0f0;
+	--text-secondary: #E0E0E0;
 	--border: #292929;
 	--highlight: #82CFFF;
 	--success: #5EDC76;
@@ -438,6 +438,7 @@ input, textarea, select {
 	border-radius: 6px;
 	min-height: 26px;
 	padding: 8px 16px;
+	background-color: var(--background);
 }
 
 textarea {
