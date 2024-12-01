@@ -38,7 +38,7 @@ export class EditBoardFormComponent implements OnInit {
 	}
 
 	handleEditBoard(): void {
-		this.boardService.saveBoards(this.editableBoard);
+		this.boardService.saveBoard(this.editableBoard);
 		this.boardService.selectBoard(this.editableBoard);
 		this.closeModal.emit();
 	}

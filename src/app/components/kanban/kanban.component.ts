@@ -43,6 +43,6 @@ export class KanbanComponent implements OnInit {
 
 	saveChanges() {
 		if (this.selectedBoard)
-		this.boardService.saveBoards(this.selectedBoard);
+		this.boardService.saveBoard(this.selectedBoard);
 	}
 }

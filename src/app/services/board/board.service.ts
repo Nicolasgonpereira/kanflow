@@ -18,12 +18,12 @@ export class BoardService {
 		return this.dataService.getBoards();
 	}
 
-	selectBoard(board: Board): void {
+	selectBoard(board: Board | null): void {
 		this.selectedBoardSuject.next(board);
 	}
 
-	saveBoards(board: Board): void {
-		this.dataService.saveBoards(board);
+	saveBoard(board: Board): void {
+		this.dataService.saveBoard(board);
 	}
 
 	createNewBoard(newBoardData: any): void {
@@ -34,6 +34,17 @@ export class BoardService {
 			));
 		const newBoard = this.dataService.createBoard(boardName, columns);
 		this.selectBoard(newBoard)
+	}
+
+	deleteBoard(boardToDelete: Board): void {
+		const boardsInStore = this.getBoards();
+		for (let board of boardsInStore) {
+			if (board.id === boardToDelete.id) {
+				const updatedBoardsInStore = boardsInStore.filter((element: Board) => element !== board)
+				this.dataService.saveBoards(updatedBoardsInStore);
+			}
+		}
+		this.selectBoard(null);
 	}
 
 	createNewTask(newTaskData: any): void {
@@ -50,7 +61,7 @@ export class BoardService {
 		if (currentBoard) {
 			currentBoard.addTask(newTaskData.status, newTask);
 			this.selectBoard(currentBoard);
-			this.dataService.saveBoards(currentBoard);
+			this.dataService.saveBoard(currentBoard);
 		}
 	}
 
@@ -65,7 +76,7 @@ export class BoardService {
 				}
 			}
 			this.selectBoard(currentBoard);
-			this.dataService.saveBoards(currentBoard);
+			this.dataService.saveBoard(currentBoard);
 		}
 	}
 }

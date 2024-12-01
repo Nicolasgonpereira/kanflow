@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Board } from '../../models/board.model';
 import { BoardService } from '../../services/board/board.service';
 import { ThemeService } from '../../services/theme/theme.service';
 import { BoardListComponent } from "../board-list/board-list.component";
@@ -17,7 +18,8 @@ import { NewTaskFormComponent } from "../new-task-form/new-task-form.component";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-	selectedBoardName: string = 'No Board Selected';
+	selectedBoard: Board | null = null;
+	selectedBoardName: string | null = null;
 	isSelectBoardModalOpen: boolean = false;
 	isNewBoardModalOpen: boolean = false;
 	isNewTaskModalOpen: boolean = false;
@@ -30,6 +32,7 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {
 		this.boardService.selectedBoard$.subscribe(board => {
 			if (board) {
+				this.selectedBoard = board;
 				this.selectedBoardName = board.title;
 			}
 		})
@@ -80,5 +83,12 @@ export class HeaderComponent implements OnInit {
 
 	toggleAppTheme(): void {
 		this.themeService.toggleTheme();
+	}
+
+	deleteBoard(): void {
+		if (this.selectedBoard) {
+			this.boardService.deleteBoard(this.selectedBoard)
+			this.selectedBoardName = null;
+		}
 	}
 }

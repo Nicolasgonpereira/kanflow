@@ -15,7 +15,7 @@ export class DataService {
 		return parsedBoards.map(board => Board.fromJSON(board));
 	}
 
-	saveBoards(selectedBoard: Board): void {
+	saveBoard(selectedBoard: Board): void {
 		let boards = this.getBoards();
 		const index = boards.findIndex((b: Board) => b.id === selectedBoard.id);
 		if (index !== -1) {
@@ -26,11 +26,15 @@ export class DataService {
 		localStorage.setItem(this.localStorageKey, JSON.stringify(boards));
 	}
 
+	saveBoards(boards: Board[]): void {
+		localStorage.setItem(this.localStorageKey, JSON.stringify(boards));
+	}
+
 	createBoard(title: string, columns: {name: string, tasks: Task[]}[] = []): Board {
 		const boards = this.getBoards();
 		const newId = boards.length ? Math.max(...boards.map(board => board.id)) + 1 : 1;
 		const newBoard = new Board(newId, title, columns)
-		this.saveBoards(newBoard);
+		this.saveBoard(newBoard);
 		return newBoard;
 	}
 }

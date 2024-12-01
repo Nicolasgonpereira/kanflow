@@ -8,7 +8,7 @@
 	</div>
 	<div ngClass="divSelectedBoard">
 		<button (click)="openSelectModal()">
-			{{selectedBoardName}}
+			{{selectedBoardName || 'No Board Selected'}}
 		</button>
 	</div>
 	<div ngClass="divAddTask">
@@ -30,7 +30,7 @@
 				<li (click)="openEditBoardModal();closeDropdownSettingsOpen()">
 					Edit board
 				</li>
-				<li class="buttonDeleteBoard" (click)="closeDropdownSettingsOpen()">
+				<li class="buttonDeleteBoard" (click)="deleteBoard();closeDropdownSettingsOpen()">
 					Delete board
 				</li>
 				<li (click)="toggleAppTheme()">Toggle theme</li>
