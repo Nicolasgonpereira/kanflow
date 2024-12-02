@@ -4,11 +4,13 @@ import { SubTask } from '../../models/subtask.model';
 import { Task } from '../../models/task.model';
 import { BoardService } from '../../services/board/board.service';
 import { DropDownComponent } from "../drop-down/drop-down.component";
+import { EditTaskFormComponent } from "../edit-task-form/edit-task-form.component";
+import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: 'app-task-info',
   standalone: true,
-  imports: [CommonModule, DropDownComponent],
+  imports: [CommonModule, DropDownComponent, ModalComponent, EditTaskFormComponent],
   templateUrl: './task-info.component.html',
   styleUrl: './task-info.component.css'
 })
@@ -39,5 +41,9 @@ export class TaskInfoComponent {
 
 	handleSubtaskCompletion(subtask: SubTask): void {
 		this.boardService.saveSubtaskCompletion(this.task, subtask);
+	}
+
+	deleteTask(): void {
+		this.boardService.deleteTask(this.task);
 	}
 }

@@ -92,3 +92,16 @@ export class BoardService {
 		}
 	}
 
+	deleteTask(taskToDelete: Task): void {
+		const currentBoard = this.selectedBoardSuject.value;
+		if (currentBoard) {
+			for (let column of currentBoard.columns) {
+				const taskIndex = column.tasks.findIndex((task: Task) => task === taskToDelete)
+				if (taskIndex !== -1) {
+					column.tasks.splice(taskIndex, 1);
+				}
+			}
+			this.saveBoard(currentBoard);
+		}
+	}
+}

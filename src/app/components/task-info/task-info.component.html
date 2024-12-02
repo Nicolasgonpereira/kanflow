@@ -14,11 +14,14 @@
 				<li (click)="openEditTaskModal();closeDropdownSettings()">
 					Edit task
 				</li>
-				<li class="buttonDeleteTask" (click)="closeDropdownSettings()">
+				<li class="buttonDeleteTask" (click)="deleteTask();closeDropdownSettings()">
 					Delete task
 				</li>
 			</ul>
 		</app-drop-down>
+		<app-modal *ngIf="isEditTaskModalOpen" (closeModal)="closeEditTaskModal()">
+			<app-edit-task-form [task]="task" (closeModal)="closeEditTaskModal()"></app-edit-task-form>
+		</app-modal>
 </header>
 <p>
 	{{task.description}}
