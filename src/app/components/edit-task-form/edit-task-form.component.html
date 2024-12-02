@@ -1,0 +1,51 @@
+<header>
+	<h2 id="title">Edit Task</h2>
+	<p id="description">Use this form to edit the selected task.</p>
+</header>
+<form class="editTaskForm" (ngSubmit)="handleEditTask()">
+	<div>
+		<label for="taskNameInput">Task Name</label>
+		<input
+			type="text"
+			id="taskNameInput"
+			name="taskName"
+			required
+			[(ngModel)]="editableTask.title"
+			aria-required="true"
+		/>
+	</div>
+	<div>
+		<label for="taskDescriptionInput">Description</label>
+		<textarea
+			id="taskDescriptionInput"
+			class="taskDescriptionInput"
+			name="taskDescription"
+			[(ngModel)]="editableTask.description"
+			rows="3"
+		>
+
+		</textarea>
+	</div>
+	<div>
+		<label for="taskResponsibleInput">Responsible</label>
+		<input
+			type="text"
+			id="taskResponsibleInput"
+			name="taskResponsible"
+			required
+			[(ngModel)]="editableTask.responsible"
+			aria-required="true"
+		/>
+	</div>
+	<div>
+		<label for="subTasksList">Subtasks</label>
+		<div class="subTasksList" id="subTasksList">
+			<div class="subTasksListInput" *ngFor="let subtask of editableTask.subtasks; let i = index trackBy: trackByTask">
+				<input type="text" [(ngModel)]="editableTask.subtasks[i].title" name="subtask{{i}}" />
+				<button class="buttonRemoveSubtask" type="button" (click)="removeSubTask(i)" >X</button>
+			</div>
+			<button class="secondary" type="button" (click)="addSubTask()">Add new Subtask</button>
+		</div>
+	</div>
+	<button class="primary" type="submit">Save changes</button>
+</form>

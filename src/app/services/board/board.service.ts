@@ -79,4 +79,16 @@ export class BoardService {
 			this.dataService.saveBoard(currentBoard);
 		}
 	}
-}
+
+	editTask(task: Task, editedTask: Task): void {
+		const currentBoard = this.selectedBoardSuject.value;
+		if (currentBoard) {
+			const taskToUpdate = currentBoard.findTask(task);
+			if (taskToUpdate) {
+				taskToUpdate.editTask(editedTask);
+			}
+			this.selectBoard(currentBoard);
+			this.dataService.saveBoard(currentBoard);
+		}
+	}
+

@@ -43,6 +43,13 @@ export class Task {
 		return undefined;
 	}
 
+	editTask(taskToUpdate: Task): void {
+		this.title = taskToUpdate.title;
+		this.description = taskToUpdate.description;
+		this.responsible = taskToUpdate.responsible;
+		this.subtasks = taskToUpdate.subtasks;
+	}
+
 	static fromJSON(json: Task): Task {
 		return new Task(
 			json.title,
