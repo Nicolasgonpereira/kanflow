@@ -16,6 +16,7 @@ import { TaskCardComponent } from "../task-card/task-card.component";
 export class KanbanComponent implements OnInit {
 	selectedBoard: Board | null = null;
 	connectedDropLists: string[] = [];
+	isDragActive: boolean = true;
 
 	constructor (private boardService: BoardService) {}
 
@@ -41,8 +42,12 @@ export class KanbanComponent implements OnInit {
 		this.saveChanges();
 	}
 
-	saveChanges() {
+	saveChanges(): void {
 		if (this.selectedBoard)
 		this.boardService.saveBoard(this.selectedBoard);
+	}
+
+	toggleDragActive(): void {
+		this.isDragActive = !this.isDragActive;
 	}
 }

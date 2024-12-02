@@ -8,6 +8,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: default;
+	z-index: 1000;
 }
 
 .modal-content {

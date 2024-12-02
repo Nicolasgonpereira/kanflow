@@ -2,13 +2,13 @@
 	<div
 		style="margin: 0 0 0 8px;"
 	>
-		<p>
+		<p class="logo">
 			KanFlow
 		</p>
 	</div>
 	<div ngClass="divSelectedBoard">
 		<button (click)="openSelectModal()">
-			{{selectedBoardName || 'No Board Selected'}}
+			{{selectedBoardName || 'No Board Selected'}} <span class="material-icons expandIcon" [ngClass]="{'selectedModalOpen':isSelectBoardModalOpen}">keyboard_arrow_up</span>
 		</button>
 	</div>
 	<div ngClass="divAddTask">

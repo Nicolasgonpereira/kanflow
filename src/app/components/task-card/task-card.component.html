@@ -9,6 +9,7 @@
 	<p>Due Date: {{task.dueDate | date: 'dd/MM/yyyy'}}</p>
 	<p>Produced: {{task.getCompletedSubtasksCount()}}</p>
 </article>
+
 <app-modal *ngIf="isTaskInfoModalOpen" (closeModal)="closeTaskInfoModal()">
 	<app-task-info [task]="task"></app-task-info>
 </app-modal>

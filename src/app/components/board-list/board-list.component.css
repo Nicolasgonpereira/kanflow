@@ -26,7 +26,14 @@ li {
 	padding: 12px;
 }
 
+li:not(.boardSelected):hover {
+	background-color: var(--highlight);
+	border-radius: 0 12px 12px 0;
+	cursor: pointer;
+}
+
 .boardSelected {
 	background-color: var(--border);
 	border-radius: 0 12px 12px 0;
+	cursor: default;
 }

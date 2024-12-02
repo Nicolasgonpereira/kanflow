@@ -15,9 +15,10 @@
 		>
 			<li
 				cdkDrag
+				[cdkDragDisabled]="!isDragActive"
 				class="kanbantask" *ngFor="let task of column.tasks"
 			>
-				<app-task-card [task]="task"></app-task-card>
+				<app-task-card [task]="task" (toggleDragActive)="toggleDragActive()"></app-task-card>
 			</li>
 		</ul>
 	</article>

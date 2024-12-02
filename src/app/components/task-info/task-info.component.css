@@ -1,3 +1,7 @@
+* {
+	cursor: auto;
+}
+
 header {
 	display: flex;
 	flex-direction: row;
@@ -20,6 +24,7 @@ li {
 	background-color: var(--background);
 	border-radius: 4px;
 	padding: 8px;
+	cursor: pointer;
 }
 
 input[type="checkbox"] {
@@ -31,6 +36,13 @@ label {
 	flex-direction: row;
 	align-items: center;
 	gap: 8px;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+label input, span:hover {
+	cursor: pointer;
 }
 
 .completedSubtask {

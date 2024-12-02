@@ -40,3 +40,7 @@ h2 {
 	width: 80%;
 	font-weight: 600;
 }
+
+#taskStatusSelect {
+	cursor: pointer;
+}

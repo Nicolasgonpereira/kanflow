@@ -13,6 +13,10 @@ header div {
 	align-items: center;
 }
 
+.logo:hover {
+	cursor: default;
+}
+
 .divSelectedBoard {
 	display: flex;
 	width: 100%;
@@ -22,9 +26,9 @@ header div {
 }
 
 .divSelectedBoard button {
-	width: 100%;
 	height: 100%;
 	justify-content: center;
+	padding: 0 32px;
 }
 
 .divAddTask {
@@ -44,6 +48,10 @@ ul {
 	gap: 10px;
 }
 
+li {
+	cursor: pointer;
+}
+
 .buttonDeleteBoard {
 	color: var(--error);
 }
@@ -56,4 +64,18 @@ ul {
 	height: 26px;
 	border-radius: 50%;
 	background-color: var(--background);
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+.expandIcon {
+	background-color: transparent;
+	color: var(--text-primary);
+	rotate: 180deg;
+}
+
+.selectedModalOpen {
+	rotate: 0deg;
 }
