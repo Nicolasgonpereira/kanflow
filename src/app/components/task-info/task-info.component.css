@@ -25,3 +25,15 @@ li {
 input[type="checkbox"] {
 	margin: 0 8px 0 0;
 }
+
+label {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+}
+
+.completedSubtask {
+	text-decoration: line-through;
+	color: var(--border);
+}

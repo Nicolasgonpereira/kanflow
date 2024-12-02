@@ -38,7 +38,7 @@
 				(change)="handleSubtaskCompletion(subtask)"
 				[attr.aria-label]="'Mark subtask ' + subtask.title + ' as completed'"
 			/>
-			{{subtask.title}}
+			<span [ngClass]="{'completedSubtask': subtask.isCompleted}">{{subtask.title}}</span>
 		</label>
 	</li>
 </ul>
