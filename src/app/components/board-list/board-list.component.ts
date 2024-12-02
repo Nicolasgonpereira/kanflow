@@ -13,6 +13,7 @@ import { BoardService } from '../../services/board/board.service';
 export class BoardListComponent implements OnInit{
 	isBoardListVisible:boolean = true;
 	boards: Board[] = [];
+	selectedBoardTitle: string = '';
 	@Output() closeNotify: EventEmitter<void> = new EventEmitter();
 	@Output() onNewBoardNotify: EventEmitter<void> = new EventEmitter();
 
@@ -20,6 +21,11 @@ export class BoardListComponent implements OnInit{
 
 	ngOnInit(): void {
 		this.boards = this.boardService.getBoards();
+		this.boardService.selectedBoard$.subscribe((board: Board | null) => {
+			if (board) {
+				this.selectedBoardTitle = board.title;
+			}
+		})
 	}
 
 	onSelectBoard(board: Board): void {

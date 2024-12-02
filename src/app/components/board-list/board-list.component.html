@@ -1,6 +1,14 @@
+<header>
+	<h2 id="title">All Boards ({{boards.length}})</h2>
+	<p id="description">Select one Board to work</p>
+</header>
 <ul *ngIf="isBoardListVisible">
-	<li *ngFor="let board of boards" (click)="onSelectBoard(board)">
-		{{board.title}}
+	<li
+		*ngFor="let board of boards"
+		(click)="onSelectBoard(board)"
+		[ngClass]="{'boardSelected': board.title === selectedBoardTitle}"
+	>
+		<span class="material-icons">view_kanban</span> {{board.title}}
 	</li>
-	<button (click)="onNewBoard()">Create New Board</button>
+	<button class="primary" (click)="onNewBoard()">Create New Board</button>
 </ul>

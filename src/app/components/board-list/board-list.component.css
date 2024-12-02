@@ -1,0 +1,32 @@
+header {
+	margin: 0 0 24px 0;
+}
+
+header h2 {
+	margin: 12px 0 8px 0;
+}
+
+header p {
+	margin: 0;
+}
+
+ul {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	padding: 0;
+	gap: 16px;
+}
+
+li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding: 12px;
+}
+
+.boardSelected {
+	background-color: var(--border);
+	border-radius: 0 12px 12px 0;
+}
