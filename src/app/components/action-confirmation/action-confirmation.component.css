@@ -1,0 +1,23 @@
+header {
+	margin: 0 0 24px 0;
+}
+
+header h2 {
+	margin: 12px 0 8px 0;
+}
+
+header p {
+	margin: 0;
+}
+
+div {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	gap: 36px;
+}
+
+div button {
+	flex-grow: 1;
+	border-radius: 12px;
+}

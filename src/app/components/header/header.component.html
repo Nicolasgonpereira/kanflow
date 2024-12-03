@@ -30,12 +30,21 @@
 				<li (click)="openEditBoardModal();closeDropdownSettingsOpen()">
 					Edit board
 				</li>
-				<li class="buttonDeleteBoard" (click)="deleteBoard();closeDropdownSettingsOpen()">
+				<li class="buttonDeleteBoard" (click)="openDeleteModal()">
 					Delete board
 				</li>
 				<li (click)="toggleAppTheme()">Toggle theme</li>
 			</ul>
 		</app-drop-down>
+		<app-modal *ngIf="isDeletingModalOpen" (closeModal)="closeDeleteModal()">
+			<app-action-confirmation
+				[title]="'Confirm Deletion of ' + selectedBoardName"
+				[description]="'Are you sure you want to delete the board ' + selectedBoardName + '? This action cannot be undone, and all tasks and subtasks will also be removed.'"
+				[buttonName]="'Delete'"
+				[buttonAction]="deleteBoard.bind(this)"
+				(closeModal)="closeDeleteModal()"
+			/>
+		</app-modal>
 	</div>
 </header>
 <app-modal *ngIf="isSelectBoardModalOpen" (closeModal)="closeSelectModal()">

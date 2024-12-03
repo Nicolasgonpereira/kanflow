@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Board } from '../../models/board.model';
 import { BoardService } from '../../services/board/board.service';
 import { ThemeService } from '../../services/theme/theme.service';
+import { ActionConfirmationComponent } from '../action-confirmation/action-confirmation.component';
 import { BoardListComponent } from "../board-list/board-list.component";
 import { DropDownComponent } from "../drop-down/drop-down.component";
 import { EditBoardFormComponent } from "../edit-board-form/edit-board-form.component";
@@ -13,7 +14,7 @@ import { NewTaskFormComponent } from "../new-task-form/new-task-form.component";
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ModalComponent, CommonModule, BoardListComponent, NewBoardFormComponent, NewTaskFormComponent, EditBoardFormComponent, DropDownComponent],
+  imports: [ModalComponent, CommonModule, BoardListComponent, NewBoardFormComponent, NewTaskFormComponent, EditBoardFormComponent, DropDownComponent,ActionConfirmationComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
 	isEditBoardModalOpen: boolean = false;
 	isdropdownSettingsOpen: boolean = false;
 	dropDownStyles: {[key:string]: string} = {right: '10px', 'top': '0px', 'transform': 'translate(0, 50%)'};
+	isDeletingModalOpen: boolean = false;
 
 	constructor (private boardService: BoardService, private themeService: ThemeService) {}
 
@@ -89,6 +91,16 @@ export class HeaderComponent implements OnInit {
 		if (this.selectedBoard) {
 			this.boardService.deleteBoard(this.selectedBoard)
 			this.selectedBoardName = null;
+			this.closeDeleteModal();
+			this.closeDropdownSettingsOpen();
 		}
+	}
+
+	openDeleteModal(): void {
+		this.isDeletingModalOpen = true;
+	}
+
+	closeDeleteModal(): void {
+		this.isDeletingModalOpen = false;
 	}
 }

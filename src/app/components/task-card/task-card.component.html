@@ -11,5 +11,5 @@
 </article>
 
 <app-modal *ngIf="isTaskInfoModalOpen" (closeModal)="closeTaskInfoModal()">
-	<app-task-info [task]="task"></app-task-info>
+	<app-task-info [task]="task" (closeModal)="closeTaskInfoModal()"></app-task-info>
 </app-modal>
