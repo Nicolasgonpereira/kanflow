@@ -2,6 +2,8 @@
 
 Este é um **web app de Kanban** desenvolvido em Angular, projetado para facilitar a gestão de tarefas e projetos de forma responsiva e intuitiva. Com funcionalidades como criação de boards, gerenciamento de tarefas e subtarefas, o app oferece uma experiência de usuário fluida e moderna.
 
+**Deploy na [**Vercel**](https://kanflow-lemon.vercel.app)**
+
 ## Funcionalidades
 
 Os usuários poderão:
