@@ -27,10 +27,10 @@
 			[customStyles]="dropDownStyles"
 		>
 			<ul>
-				<li (click)="openEditBoardModal();closeDropdownSettingsOpen()">
+				<li *ngIf="selectedBoard" (click)="openEditBoardModal();closeDropdownSettingsOpen()">
 					Edit board
 				</li>
-				<li class="buttonDeleteBoard" (click)="openDeleteModal()">
+				<li *ngIf="selectedBoard" class="buttonDeleteBoard" (click)="openDeleteModal()">
 					Delete board
 				</li>
 				<li (click)="toggleAppTheme()">Toggle theme</li>

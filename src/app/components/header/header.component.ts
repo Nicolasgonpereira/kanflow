@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 	isNewTaskModalOpen: boolean = false;
 	isEditBoardModalOpen: boolean = false;
 	isdropdownSettingsOpen: boolean = false;
-	dropDownStyles: {[key:string]: string} = {right: '10px', 'top': '0px', 'transform': 'translate(0, 50%)'};
+	dropDownStyles: {[key:string]: string} = {right: '10px', 'top': '60px'};
 	isDeletingModalOpen: boolean = false;
 
 	constructor (private boardService: BoardService, private themeService: ThemeService) {}
@@ -67,8 +67,9 @@ export class HeaderComponent implements OnInit {
 	}
 
 	openEditBoardModal(): void {
-		if(this.selectedBoardName)
+		if(this.selectedBoardName) {
 			this.isEditBoardModalOpen = true;
+		}
 	}
 
 	closeEditBoardModal(): void {
@@ -97,7 +98,9 @@ export class HeaderComponent implements OnInit {
 	}
 
 	openDeleteModal(): void {
-		this.isDeletingModalOpen = true;
+		if(this.selectedBoardName) {
+			this.isDeletingModalOpen = true;
+		}
 	}
 
 	closeDeleteModal(): void {
