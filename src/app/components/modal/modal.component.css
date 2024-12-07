@@ -6,13 +6,15 @@
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.3);
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	cursor: default;
-	z-index: 1000;
+	z-index: 10;
 }
 
 .modal-content {
+	position: absolute;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
 	background-color: var(--secondary-bg);
 	padding: 20px;
 	border-radius: 4px;
@@ -20,4 +22,5 @@
 	max-width: 80vw;
 	max-height: 80vh;
 	overflow-y: auto;
+	z-index: 1000;
 }
