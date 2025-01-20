@@ -6,32 +6,19 @@
 		<span class="material-icons">more_vert</span>
 	</button>
 	<app-drop-down
-			*ngIf="isDropdownSettingsOpen"
-			(closeDropdown)="closeDropdownSettings()"
-			[customStyles]="dropDownStyles"
-		>
-			<ul>
-				<li (click)="openEditTaskModal();closeDropdownSettings()">
-					Edit task
-				</li>
-				<li class="buttonDeleteTask" (click)="openDeleteModal()">
-					Delete task
-				</li>
-			</ul>
-		</app-drop-down>
-		<app-modal *ngIf="isEditTaskModalOpen" (closeModal)="closeEditTaskModal()">
-			<app-edit-task-form [task]="task" (closeModal)="closeEditTaskModal()"></app-edit-task-form>
-		</app-modal>
-		<app-modal *ngIf="isDeletingModalOpen" (closeModal)="closeDeleteModal()">
-			<app-action-confirmation
-				[title]="'Confirm Deletion of ' + task.title"
-				[description]="'Are you sure you want to delete the task ' + task.title + '? This action cannot be undone, and all subtasks will also be removed.'"
-				[buttonName]="'Delete'"
-				[buttonAction]="deleteTask.bind(this)"
-				(closeModal)="closeDeleteModal()"
-			/>
-		</app-modal>
-
+		*ngIf="isDropdownSettingsOpen"
+		(closeDropdown)="closeDropdownSettings()"
+		[customStyles]="dropDownStyles"
+	>
+		<ul>
+			<li (click)="openEditTask();closeDropdownSettings()">
+				Edit task
+			</li>
+			<li class="buttonDeleteTask" (click)="openDeleteModal()">
+				Delete task
+			</li>
+		</ul>
+	</app-drop-down>
 </header>
 <p>
 	{{task.description}}
